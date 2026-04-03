@@ -13,11 +13,12 @@ on:
 jobs:
   comment-run:
     runs-on: ${{ matrix.os }}
+    # timeout-minutes: 30
     strategy:
       fail-fast: false
       max-parallel: 3
       matrix:
-        python: ['3.7', '3.10', '3.11']
+        python: ['3.10', '3.11', '3.12']
         os: [ macos-latest, windows-latest, ubuntu-latest ]
     name: Pytest Repo ${{ matrix.python }} - ${{ matrix.os }} Sample
     env:
@@ -56,9 +57,11 @@ jobs:
         run: python -m pip install -r requirements.txt
 
       - name: run tests in parallel
+        # timeout-minutes: 15
         run: browserstack-sdk pytest -s tests/bstack-sample-test.py
 
       - name: run local tests in parallel
+        # timeout-minutes: 15
         run: browserstack-sdk pytest -s tests/bstack-local-test.py
 
       - if: always()
