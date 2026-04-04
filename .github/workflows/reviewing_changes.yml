@@ -19,7 +19,7 @@ jobs:
       max-parallel: 3
       matrix:
         python: ['3.10', '3.11', '3.12']
-        os: [ macos-latest, ubuntu-latest ]
+        os: [ macos-latest, ubuntu-latest, windows-latest ]
     name: Pytest Repo ${{ matrix.python }} - ${{ matrix.os }} Sample
     env:
       BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
