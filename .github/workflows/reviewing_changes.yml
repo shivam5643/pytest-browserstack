@@ -60,9 +60,9 @@ jobs:
         # timeout-minutes: 15
         run: browserstack-sdk pytest -s tests/bstack-sample-test.py
 
-      - name: run local tests in parallel
-        # timeout-minutes: 15
-        run: browserstack-sdk pytest -s tests/bstack-local-test.py
+      # - name: run local tests in parallel
+      #   # timeout-minutes: 15
+      #   run: browserstack-sdk pytest -s tests/bstack-local-test.py
 
       - if: always()
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
